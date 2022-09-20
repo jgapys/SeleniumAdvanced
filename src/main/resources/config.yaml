@@ -1,0 +1,10 @@
+browser:
+  browserName: chrome
+  headlessBrowser: false
+  webElementTimeOut: 15
+
+environment:
+  test:
+    envName: test
+    appURL: http://146.59.32.4/index.php
+    active: true
