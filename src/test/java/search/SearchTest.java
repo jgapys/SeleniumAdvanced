@@ -23,7 +23,8 @@ public class SearchTest extends TestBase {
         SearchPage searchPage = new SearchPage(driver);
         WebElement randomProduct = searchPage.getRandomProduct();
         String productName = searchPage.getProductName(randomProduct);
-        searchPage.searchProduct(productName).clickSearchInput();
+        searchPage.searchProduct(productName)
+                .clickSearchInput();
         String productAfterSearch = searchPage.getSearchedProductTitle();
         logger.info("Product on website: " + productAfterSearch + ", product to search: " + productName);
         assertThat(productAfterSearch).isEqualTo(productName);
