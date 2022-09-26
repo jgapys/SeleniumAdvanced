@@ -4,9 +4,10 @@ import base.TestBase;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pages.productAndCategories.ProductsPage;
+import pages.productAndCategories.ProductsTilePage;
 import pages.search.SearchPage;
 
 import java.util.List;
@@ -21,13 +22,15 @@ public class SearchTest extends TestBase {
     @Tag("search")
     public void checkingSearchResultForRandomSearchedProduct() {
         SearchPage searchPage = new SearchPage(driver);
-        WebElement randomProduct = searchPage.getRandomProduct();
-        String productName = searchPage.getProductName(randomProduct);
-        searchPage.searchProduct(productName)
-                .clickSearchInput();
-        String productAfterSearch = searchPage.getSearchedProductTitle();
-        logger.info("Product on website: " + productAfterSearch + ", product to search: " + productName);
-        assertThat(productAfterSearch).isEqualTo(productName);
+        ProductsPage productsPage = new ProductsPage(driver);
+        ProductsTilePage productsTilePage = new ProductsTilePage(driver);
+
+        String productTitle = productsTilePage.getProductTitle(productsPage.getRandomProduct());
+        searchPage.searchProduct(productTitle).clickSearchInputBtn();
+        String productTitleAfterSearch = productsTilePage.getSearchedProductTitle();
+
+        logger.info("Product on website: " + productTitleAfterSearch + ", product to search: " + productTitle);
+        assertThat(productTitleAfterSearch).isEqualTo(productTitle);
     }
 
     @Test
@@ -35,8 +38,10 @@ public class SearchTest extends TestBase {
     @Tag("search")
     public void checkingDropdownForTextInInput() {
         SearchPage searchPage = new SearchPage(driver);
+
         String search = "HUMMINGBIRD";
         searchPage.searchProduct(search);
+
         List<String> dropdownItemsNames = searchPage.getDropdownItemsNames();
         boolean isContained = true;
         for (String dropdownItemsName : dropdownItemsNames) {
@@ -45,6 +50,7 @@ public class SearchTest extends TestBase {
                 break;
             }
         }
+
         assertThat(isContained).isEqualTo(true);
     }
 }

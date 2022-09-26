@@ -47,16 +47,11 @@ public class BasePage {
         return element.getText();
     }
 
-    protected void waitToBeVisible(WebElement element) {
-        wait.until(ExpectedConditions.visibilityOf(element));
-    }
-
     protected void waitToBeInvisible(WebElement element) {
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
-    protected void waitToBeClickable(WebElement element) {
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+    protected void returnToPreviousPage() {
+        driver.navigate().back();
     }
-
 }

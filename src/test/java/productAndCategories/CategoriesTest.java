@@ -7,7 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pages.menu.MenuPage;
 import pages.productAndCategories.CategoriesPage;
+import pages.productAndCategories.FiltersPage;
+import pages.productAndCategories.ProductsPage;
 
 import java.util.List;
 
@@ -19,18 +22,26 @@ public class CategoriesTest extends TestBase {
     @Test
     @DisplayName("Checking name, filters, count and label for each category")
     @Tag("categories")
+    @Tag("prodAndCat")
     public void checkingParametersForEachCategory() {
         CategoriesPage categoriesPage = new CategoriesPage(driver);
-        List<WebElement> allCategories = categoriesPage.getAllCategories();
+        MenuPage menuPage = new MenuPage(driver);
+        FiltersPage filtersPage = new FiltersPage(driver);
+        ProductsPage productsPage = new ProductsPage(driver);
+
+        List<WebElement> allCategories = menuPage.getAllMenuItems();
         for (int i = 0; i < allCategories.size(); i++) {
             WebElement category = allCategories.get(i);
-            String categoryName = categoriesPage.getCategoryName(category);
-            categoriesPage.clickInCategory(category);
+            String categoryName = menuPage.getMenuItemName(category);
+            menuPage.clickInMenuItem(category);
             String openedCategoryTitle = categoriesPage.getOpenedCategoryTitle();
+
             logger.info("Opened category title: " + openedCategoryTitle + ", clicked category name: " + categoryName);
             assertThat(openedCategoryTitle).isEqualTo(categoryName);
-            assertThat(categoriesPage.isFiltersMenuDisplayed()).isEqualTo(true);
-            int productsAmount = categoriesPage.getProductsQuantity();
+
+            assertThat(filtersPage.isFiltersMenuDisplayed()).isEqualTo(true);
+
+            int productsAmount = productsPage.getProductsQuantity();
             logger.info("There are " + categoriesPage.getTotalProductsNumber() + " products. | products in category: " + productsAmount);
             assertThat(categoriesPage.getTotalProductsNumber()).isEqualTo(productsAmount);
         }
@@ -39,46 +50,39 @@ public class CategoriesTest extends TestBase {
     @Test
     @DisplayName("Checking name, filters, count and label for each subcategory")
     @Tag("categories")
+    @Tag("prodAndCat")
     public void checkingParametersForEachSubcategory() {
         CategoriesPage categoriesPage = new CategoriesPage(driver);
-        List<WebElement> allCategories = categoriesPage.getAllCategories();
+        MenuPage menuPage = new MenuPage(driver);
+        FiltersPage filtersPage = new FiltersPage(driver);
+        ProductsPage productsPage = new ProductsPage(driver);
+
+        List<WebElement> allCategories = menuPage.getAllMenuItems();
         for (int i = 0; i < allCategories.size(); i++) {
             WebElement category = allCategories.get(i);
-            categoriesPage.clickInCategory(category);
+            menuPage.clickInMenuItem(category);
+
             if (categoriesPage.isSubcategory()) {
+                logger.info("Subcategory exists");
                 List<WebElement> allSubcategories = categoriesPage.getAllSubategories();
                 for (int j = 0; j < allSubcategories.size(); j++) {
                     WebElement subcategory = allSubcategories.get(j);
-                    String subcategoryName = categoriesPage.getCategoryName(subcategory);
-                    categoriesPage.clickInCategory(subcategory);
+                    String subcategoryName = categoriesPage.getSubcategoryName(subcategory);
+                    categoriesPage.clickInSubcategory(subcategory);
                     String openedSubcategoryTitle = categoriesPage.getOpenedCategoryTitle();
+
                     logger.info("Opened subcategory title: " + openedSubcategoryTitle + ", clicked subcategory name: " + subcategoryName);
                     assertThat(openedSubcategoryTitle).isEqualTo(subcategoryName);
-                    assertThat(categoriesPage.isFiltersMenuDisplayed()).isEqualTo(true);
-                    int productsAmount = categoriesPage.getProductsQuantity();
+
+                    assertThat(filtersPage.isFiltersMenuDisplayed()).isEqualTo(true);
+
+                    int productsAmount = productsPage.getProductsQuantity();
                     logger.info("There are " + categoriesPage.getTotalProductsNumber() + " products. | products in subcategory: " + productsAmount);
                     assertThat(categoriesPage.getTotalProductsNumber()).isEqualTo(productsAmount);
+
+                    categoriesPage.returnToCategory();
                 }
             }
         }
-    }
-
-    @Test
-    @DisplayName("Checking the correct operation of filters for category")
-    @Tag("categories")
-    public void checkingFilterForCategory() {
-        CategoriesPage categoriesPage = new CategoriesPage(driver);
-        categoriesPage.clickInChosenCategory("ART");
-        int productsAmount = categoriesPage.getProductsQuantity();
-        categoriesPage.setPriceFilter(8, 10);
-        List<Integer> filteredProdPrice = categoriesPage.getFilteredProductsPrice();
-        for (int price : filteredProdPrice) {
-            logger.info("Price " + price + " matches filter between " + 8 + " and " + 10);
-            assertThat(price).isBetween(8, 10);
-        }
-        categoriesPage.clearFilter();
-        int productsAmountAfterClear = categoriesPage.getProductsQuantity();
-        logger.info("Products after clear: " + productsAmountAfterClear + ", initial number of products: " + productsAmount);
-        assertThat(productsAmountAfterClear).isEqualTo(productsAmount);
     }
 }

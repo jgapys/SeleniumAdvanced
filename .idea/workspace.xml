@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e57db3e2-50d1-4ad3-85fc-57fd8e6d1127" name="Changes" comment="Initial commit">
+    <list default="true" id="e57db3e2-50d1-4ad3-85fc-57fd8e6d1127" name="Changes" comment="Improving category tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/base/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/base/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/CategoriesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/CategoriesPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/search/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/search/SearchPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/productAndCategories/CategoriesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/productAndCategories/CategoriesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/search/SearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/search/SearchTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +53,7 @@
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CategoriesTest">
+  <component name="RunManager" selected="JUnit.FiltersTest.checkingFilterForCategory">
     <configuration name="CategoriesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumAdvanced" />
       <extension name="coverage">
@@ -66,22 +69,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CategoriesTest.checkingFilterForCategory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SeleniumAdvanced" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="productAndCategories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="productAndCategories" />
-      <option name="MAIN_CLASS_NAME" value="productAndCategories.CategoriesTest" />
-      <option name="METHOD_NAME" value="checkingFilterForCategory" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CategoriesTest.checkingParametersForEachCategory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumAdvanced" />
       <extension name="coverage">
@@ -93,22 +80,6 @@
       <option name="PACKAGE_NAME" value="productAndCategories" />
       <option name="MAIN_CLASS_NAME" value="productAndCategories.CategoriesTest" />
       <option name="METHOD_NAME" value="checkingParametersForEachCategory" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CategoriesTest.checkingParametersForEachCategoryAndSubcategory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SeleniumAdvanced" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="productAndCategories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="productAndCategories" />
-      <option name="MAIN_CLASS_NAME" value="productAndCategories.CategoriesTest" />
-      <option name="METHOD_NAME" value="checkingParametersForEachCategoryAndSubcategory" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -130,13 +101,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FiltersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumAdvanced" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="productAndCategories.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="productAndCategories" />
+      <option name="MAIN_CLASS_NAME" value="productAndCategories.FiltersTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FiltersTest.checkingFilterForCategory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumAdvanced" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="productAndCategories.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="productAndCategories" />
+      <option name="MAIN_CLASS_NAME" value="productAndCategories.FiltersTest" />
+      <option name="METHOD_NAME" value="checkingFilterForCategory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FiltersTest.checkingFilterForCategory" />
+        <item itemvalue="JUnit.FiltersTest" />
+        <item itemvalue="JUnit.CategoriesTest.checkingParametersForEachCategory" />
         <item itemvalue="JUnit.CategoriesTest" />
         <item itemvalue="JUnit.CategoriesTest.checkingParametersForEachSubcategory" />
-        <item itemvalue="JUnit.CategoriesTest.checkingParametersForEachCategory" />
-        <item itemvalue="JUnit.CategoriesTest.checkingFilterForCategory" />
-        <item itemvalue="JUnit.CategoriesTest.checkingParametersForEachCategoryAndSubcategory" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663668409764</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Improving category tests">
+      <created>1664156897553</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664156897553</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -172,7 +181,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Improving category tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improving category tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
