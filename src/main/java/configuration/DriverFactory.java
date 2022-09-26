@@ -1,6 +1,7 @@
 package configuration;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import models.BrowserName;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,37 +17,42 @@ import org.slf4j.LoggerFactory;
 public class DriverFactory {
     private static final Logger logger = LoggerFactory.getLogger(DriverFactory.class);
     private WebDriver driver;
-    private String browserName;
 
-    public WebDriver getDriver(){
-        this.browserName=System.getProperty("browserName");
+    public WebDriver getDriver(BrowserName browserName) {
         logger.info("Chosen browser name: {}", browserName);
-        switch (this.browserName){
-            case "chrome" -> {
-                ChromeOptions chromeOptions = new ChromeOptions();
-                WebDriverManager.chromedriver().setup();
-                chromeOptions.addArguments("start-maximized");
-                driver = new ChromeDriver(chromeOptions);
-            }
-            case "firefox" -> {
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                WebDriverManager.firefoxdriver().setup();
-                firefoxOptions.addArguments("start-maximized");
-                driver = new FirefoxDriver(firefoxOptions);
-            }
-            case "ie" -> {
-                InternetExplorerOptions explorerOptions = new InternetExplorerOptions();
-                WebDriverManager.iedriver().setup();
-                driver = new InternetExplorerDriver(explorerOptions);
-            }
-            case "edge" -> {
-                EdgeOptions edgeOptions = new EdgeOptions();
-                WebDriverManager.edgedriver().setup();
-                edgeOptions.addArguments("start-maximized");
-                driver = new EdgeDriver(edgeOptions);
-            }
+        switch (browserName) {
+            case CHROME -> getChromeDriver();
+            case FIREFOX -> getFirefoxDriver();
+            case IE -> getInternetExplorerDriver();
+            case EDGE -> getEdgeDriver();
         }
         return this.driver;
     }
 
+    private void getChromeDriver() {
+        ChromeOptions chromeOptions = new ChromeOptions();
+        WebDriverManager.chromedriver().setup();
+        chromeOptions.addArguments("start-maximized");
+        driver = new ChromeDriver(chromeOptions);
+    }
+
+    private void getFirefoxDriver() {
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        WebDriverManager.firefoxdriver().setup();
+        firefoxOptions.addArguments("start-maximized");
+        driver = new FirefoxDriver(firefoxOptions);
+    }
+
+    private void getInternetExplorerDriver() {
+        InternetExplorerOptions explorerOptions = new InternetExplorerOptions();
+        WebDriverManager.iedriver().setup();
+        driver = new InternetExplorerDriver(explorerOptions);
+    }
+
+    private void getEdgeDriver() {
+        EdgeOptions edgeOptions = new EdgeOptions();
+        WebDriverManager.edgedriver().setup();
+        edgeOptions.addArguments("start-maximized");
+        driver = new EdgeDriver(edgeOptions);
+    }
 }
