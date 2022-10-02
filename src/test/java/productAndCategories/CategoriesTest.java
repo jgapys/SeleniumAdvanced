@@ -1,22 +1,18 @@
 package productAndCategories;
 
-import base.TestBase;
+import base.Pages;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.menu.MenuPage;
-import pages.productAndCategories.CategoriesPage;
-import pages.productAndCategories.FiltersPage;
-import pages.productAndCategories.ProductsPage;
 
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class CategoriesTest extends TestBase {
+public class CategoriesTest extends Pages {
     private static final Logger logger = LoggerFactory.getLogger(CategoriesTest.class);
 
     @Test
@@ -24,11 +20,6 @@ public class CategoriesTest extends TestBase {
     @Tag("categories")
     @Tag("prodAndCat")
     public void checkingParametersForEachCategory() {
-        CategoriesPage categoriesPage = new CategoriesPage(driver);
-        MenuPage menuPage = new MenuPage(driver);
-        FiltersPage filtersPage = new FiltersPage(driver);
-        ProductsPage productsPage = new ProductsPage(driver);
-
         List<WebElement> allCategories = menuPage.getAllMenuItems();
         for (int i = 0; i < allCategories.size(); i++) {
             WebElement category = allCategories.get(i);
@@ -52,11 +43,6 @@ public class CategoriesTest extends TestBase {
     @Tag("categories")
     @Tag("prodAndCat")
     public void checkingParametersForEachSubcategory() {
-        CategoriesPage categoriesPage = new CategoriesPage(driver);
-        MenuPage menuPage = new MenuPage(driver);
-        FiltersPage filtersPage = new FiltersPage(driver);
-        ProductsPage productsPage = new ProductsPage(driver);
-
         List<WebElement> allCategories = menuPage.getAllMenuItems();
         for (int i = 0; i < allCategories.size(); i++) {
             WebElement category = allCategories.get(i);

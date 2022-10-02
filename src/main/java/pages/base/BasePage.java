@@ -54,4 +54,8 @@ public class BasePage {
     protected void returnToPreviousPage() {
         driver.navigate().back();
     }
+
+    protected String removeDollarSignFromPrice(String price) {
+        return price.replaceAll("\\$", "");
+    }
 }

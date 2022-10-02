@@ -33,42 +33,40 @@ public class FiltersPage extends BasePage {
     @FindBy(id = "search_filters")
     private WebElement filtersSideMenu;
 
-    public void setPriceFilter(int minValue, int maxValue) {
+    public void setPriceFilter(double minValue, double maxValue) {
         moveLeftSlider(minValue);
         moveRightSlider(maxValue);
     }
 
     private String getFiltersPriceRange() {
-        return getElementText(filtersPriceLabel).replaceAll("\\$|\\.00", "");
+        return removeDollarSignFromPrice(getElementText(filtersPriceLabel));
     }
 
-    private int getMinLabelPrice() {
-        return Integer.parseInt(getFiltersPriceRange().substring(0, 1));
+    private double getMinLabelPrice() {
+        return Double.parseDouble(getFiltersPriceRange().substring(0, 4));
     }
 
-    private int getMaxLabelPrice() {
-        return Integer.parseInt(getFiltersPriceRange().substring(4));
+    private double getMaxLabelPrice() {
+        return Double.parseDouble(getFiltersPriceRange().substring(7));
     }
 
-    public void moveLeftSlider(int minValue) {
-        int valueToShift = minValue - getMinLabelPrice();
+    public void moveLeftSlider(double minValue) {
+        double valueToShift = minValue - getMinLabelPrice();
+        moveSliderToDirection(valueToShift, minValue, leftSlider, Keys.ARROW_RIGHT);
+    }
+
+    public void moveRightSlider(double maxValue) {
+        double valueToShift = getMaxLabelPrice() - maxValue;
+        moveSliderToDirection(valueToShift, maxValue, rightSlider, Keys.ARROW_LEFT);
+    }
+
+    private void moveSliderToDirection(double valueToShift, double value, WebElement slider, Keys arrow) {
         if (valueToShift > 0) {
             for (int i = 0; i < valueToShift; i++) {
-                leftSlider.sendKeys(Keys.ARROW_RIGHT);
+                slider.sendKeys(arrow);
                 waitToBeInvisible(overlay);
             }
-            logger.info("Moving left slider to: {}", minValue);
-        }
-    }
-
-    public void moveRightSlider(int maxValue) {
-        int valueToShift = getMaxLabelPrice() - maxValue;
-        if (valueToShift > 0) {
-            for (int i = 0; i < valueToShift; i++) {
-                rightSlider.sendKeys(Keys.ARROW_LEFT);
-                waitToBeInvisible(overlay);
-            }
-            logger.info("Moving right slider to: {}", maxValue);
+            logger.info("Moving slider to: " + value);
         }
     }
 

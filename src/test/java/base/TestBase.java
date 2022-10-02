@@ -28,7 +28,7 @@ public class TestBase {
     }
 
     @BeforeEach
-    void setUp() {
+    void setup() {
         BrowserName browsername = BrowserName.valueOf(System.getProperty("browserName").toUpperCase());
         driver = driverFactory.getDriver(browsername);
         logger.info("New driver initialization");

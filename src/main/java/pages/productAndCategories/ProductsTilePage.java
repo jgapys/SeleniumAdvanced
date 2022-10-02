@@ -30,8 +30,8 @@ public class ProductsTilePage extends BasePage {
         return getElementText(productTitle);
     }
 
-    public int getProductPrice() {
-        int productPrice = Integer.parseInt(getElementText(this.productPrice).replaceAll("\\$|\\.00", ""));
+    public double getProductPrice() {
+        double productPrice = Double.parseDouble(removeDollarSignFromPrice(getElementText(this.productPrice)));
         logger.info("Product price: {}", productPrice);
         return productPrice;
     }

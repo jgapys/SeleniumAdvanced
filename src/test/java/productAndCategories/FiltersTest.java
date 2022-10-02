@@ -1,21 +1,17 @@
 package productAndCategories;
 
-import base.TestBase;
+import base.Pages;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.menu.MenuPage;
-import pages.productAndCategories.FiltersPage;
-import pages.productAndCategories.ProductsPage;
-import pages.productAndCategories.ProductsTilePage;
 
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class FiltersTest extends TestBase {
+public class FiltersTest extends Pages {
     private static final Logger logger = LoggerFactory.getLogger(FiltersTest.class);
 
     @Test
@@ -23,18 +19,13 @@ public class FiltersTest extends TestBase {
     @Tag("filters")
     @Tag("prodAndCat")
     public void checkingFilterForCategory() {
-        MenuPage menuPage = new MenuPage(driver);
-        ProductsPage productsPage = new ProductsPage(driver);
-        ProductsTilePage productsTilePage = new ProductsTilePage(driver);
-        FiltersPage filtersPage = new FiltersPage(driver);
-
         menuPage.clickInChosenCategory("ART");
         int productsAmount = productsPage.getProductsQuantity();
-        int minPrice = 8;
-        int maxPrice = 10;
+        double minPrice = 8.00;
+        double maxPrice = 10.00;
         filtersPage.setPriceFilter(minPrice, maxPrice);
-        List<Integer> filteredProdPrice = productsPage.getAllProductsPrices(productsTilePage.getProductPrice());
-        for (int price : filteredProdPrice) {
+        List<Double> filteredProdPrice = productsPage.getAllProductsPrices(productsTilePage.getProductPrice());
+        for (double price : filteredProdPrice) {
             logger.info("Price " + price + " matches filter between " + minPrice + " and " + maxPrice);
             assertThat(price).isBetween(minPrice, maxPrice);
         }

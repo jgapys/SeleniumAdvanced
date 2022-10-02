@@ -29,8 +29,8 @@ public class ProductsPage extends BasePage {
         return getAllProducts().size();
     }
 
-    public List<Integer> getAllProductsPrices(int productPrice) {
-        List<Integer> productsPrices = new ArrayList<>();
+    public List<Double> getAllProductsPrices(double productPrice) {
+        List<Double> productsPrices = new ArrayList<>();
         for (int i = 0; i < products.size(); i++) {
             productsPrices.add(productPrice);
         }
