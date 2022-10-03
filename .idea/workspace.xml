@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e57db3e2-50d1-4ad3-85fc-57fd8e6d1127" name="Changes" comment="Adding browser name enum">
+    <list default="true" id="e57db3e2-50d1-4ad3-85fc-57fd8e6d1127" name="Changes" comment="Code refactor after code review">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/UserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/UserFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/base/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/base/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/menu/MenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/menu/MenuPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/FiltersPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/FiltersPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/CategoriesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/CategoriesPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductsTilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductsTilePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/TestBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/productAndCategories/CategoriesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/productAndCategories/CategoriesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/productAndCategories/FiltersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/productAndCategories/FiltersTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/search/SearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/search/SearchTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +51,23 @@
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CategoriesTest">
+  <component name="RunManager" selected="JUnit.CategoriesTest.checkingParametersForEachSubcategory">
+    <configuration name="BasketTest.checkingCartIconAfterSuccessfullyAddedProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumAdvanced" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basket.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="basket" />
+      <option name="MAIN_CLASS_NAME" value="basket.BasketTest" />
+      <option name="METHOD_NAME" value="checkingCartIconAfterSuccessfullyAddedProduct" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CategoriesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumAdvanced" />
       <extension name="coverage">
@@ -121,29 +131,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SearchTest.checkingSearchResultForRandomSearchedProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SeleniumAdvanced" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="search.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="search" />
-      <option name="MAIN_CLASS_NAME" value="search.SearchTest" />
-      <option name="METHOD_NAME" value="checkingSearchResultForRandomSearchedProduct" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CategoriesTest" />
         <item itemvalue="JUnit.CategoriesTest.checkingParametersForEachSubcategory" />
         <item itemvalue="JUnit.CategoriesTest.checkingParametersForEachCategory" />
+        <item itemvalue="JUnit.BasketTest.checkingCartIconAfterSuccessfullyAddedProduct" />
+        <item itemvalue="JUnit.CategoriesTest" />
         <item itemvalue="JUnit.FiltersTest.checkingFilterForCategory" />
-        <item itemvalue="JUnit.SearchTest.checkingSearchResultForRandomSearchedProduct" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664196583819</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Code refactor after code review">
+      <created>1664754372406</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664754372406</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,7 +204,8 @@
     <MESSAGE value="Improving category tests" />
     <MESSAGE value="Improved appearance of tests and dividing page into smaller pages" />
     <MESSAGE value="Adding browser name enum" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding browser name enum" />
+    <MESSAGE value="Code refactor after code review" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code refactor after code review" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -211,7 +213,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/base/TestBase.java</url>
           <line>41</line>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.base.BasePage;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class MenuPage extends BasePage {
     public MenuPage(WebDriver driver) {
@@ -20,16 +20,21 @@ public class MenuPage extends BasePage {
         return allMenuItems;
     }
 
-    public void clickInChosenCategory(String categoryName) {
+    public List<String> getAllMenuItemsNames() {
+        List<String> menuItemsNames = new ArrayList<>();
         for (WebElement menuItem : getAllMenuItems()) {
-            if (Objects.equals(menuItem.getText(), categoryName)) {
-                click(menuItem);
-            }
+            menuItemsNames.add(getMenuItemName(menuItem));
         }
+        return menuItemsNames;
     }
 
-    public void clickInMenuItem(WebElement menuItem) {
-        click(menuItem);
+    public void clickInChosenCategory(String categoryName) {
+        for (WebElement menuItem : getAllMenuItems()) {
+            if (getElementText(menuItem).equals(categoryName)) {
+                click(menuItem);
+                break;
+            }
+        }
     }
 
     public String getMenuItemName(WebElement menuItem) {

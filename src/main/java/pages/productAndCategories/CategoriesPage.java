@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.base.BasePage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriesPage extends BasePage {
@@ -12,7 +13,7 @@ public class CategoriesPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(css = "li[data-depth='0']")
+    @FindBy(css = "li[data-depth='0'] a")
     private List<WebElement> allSubcategories;
 
     @FindBy(className = "h1")
@@ -29,20 +30,29 @@ public class CategoriesPage extends BasePage {
         return Integer.parseInt(totalProducts.getText().replaceAll("\\D+", ""));
     }
 
-    public List<WebElement> getAllSubategories() {
+    public List<WebElement> getAllSubcategories() {
         return allSubcategories;
     }
 
-    public boolean isSubcategory() {
-        return getAllSubategories().size() > 0;
+    public List<String> getAllSubcategoriesNames() {
+        List<String> subcategoriesNames = new ArrayList<>();
+        for (WebElement subcategory : getAllSubcategories()) {
+            subcategoriesNames.add(getSubcategoryName(subcategory));
+        }
+        return subcategoriesNames;
+    }
+
+    public void clickInChosenSubcategory(String subcategoryName) {
+        for (WebElement subcategory : getAllSubcategories()) {
+            if (getElementText(subcategory).equals(subcategoryName)) {
+                click(subcategory);
+                break;
+            }
+        }
     }
 
     public String getSubcategoryName(WebElement subcategory) {
-        return getElementText(subcategory).toUpperCase();
-    }
-
-    public void clickInSubcategory(WebElement subcategory) {
-        click(subcategory);
+        return getElementText(subcategory);
     }
 
     public void returnToCategory() {

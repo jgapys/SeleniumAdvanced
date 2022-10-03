@@ -17,12 +17,19 @@ public class ProductsPage extends BasePage {
     @FindBy(className = "product")
     private List<WebElement> products;
 
+    @FindBy(css = ".product-title a")
+    private List<WebElement> productsTitles;
+
     public WebElement getRandomProduct() {
         return getRandomElement(products);
     }
 
     public List<WebElement> getAllProducts() {
         return products;
+    }
+
+    public List<WebElement> getAllProductsTitles() {
+        return productsTitles;
     }
 
     public int getProductsQuantity() {
@@ -35,5 +42,14 @@ public class ProductsPage extends BasePage {
             productsPrices.add(productPrice);
         }
         return productsPrices;
+    }
+
+    public void clickInChosenProduct(String productName) {
+        for (WebElement productTitle : getAllProductsTitles()) {
+            if (getElementText(productTitle).equals(productName)) {
+                click(productTitle);
+                break;
+            }
+        }
     }
 }
