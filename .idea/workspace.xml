@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e57db3e2-50d1-4ad3-85fc-57fd8e6d1127" name="Changes" comment="Code refactor after code review">
+    <list default="true" id="e57db3e2-50d1-4ad3-85fc-57fd8e6d1127" name="Changes" comment="Adding test that adds product to cart">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/menu/MenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/menu/MenuPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/CategoriesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/CategoriesPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/base/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/base/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/menu/LoginAndCartMenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/menu/LoginAndCartMenuPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/menu/MenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/menu/CategoryMenuPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/popup/AddedToCartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/popup/AddedToCartPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/AllProductsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/search/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/search/SearchPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/Pages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Pages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/productAndCategories/CategoriesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/productAndCategories/CategoriesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/productAndCategories/FiltersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/productAndCategories/FiltersTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/search/SearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/search/SearchTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +58,24 @@
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CategoriesTest.checkingParametersForEachSubcategory">
-    <configuration name="BasketTest.checkingCartIconAfterSuccessfullyAddedProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CheckoutTest.checkingOrderCorrectness">
+    <configuration name="AddToBasketTest.checkingCartIconAfterSuccessfullyAddedProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumAdvanced" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basket.AddToBasketTest" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="basket" />
+      <option name="MAIN_CLASS_NAME" value="basket.AddToBasketTest" />
+      <option name="METHOD_NAME" value="checkingCartIconAfterSuccessfullyAddedProduct" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CheckoutTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumAdvanced" />
       <extension name="coverage">
         <pattern>
@@ -61,71 +84,55 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="basket" />
-      <option name="MAIN_CLASS_NAME" value="basket.BasketTest" />
+      <option name="MAIN_CLASS_NAME" value="basket.CheckoutTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CheckoutTest.checkingCartIconAfterSuccessfullyAddedProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumAdvanced" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basket.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="basket" />
+      <option name="MAIN_CLASS_NAME" value="basket.CheckoutTest" />
       <option name="METHOD_NAME" value="checkingCartIconAfterSuccessfullyAddedProduct" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CategoriesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CheckoutTest.checkingOrderCorrectness" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumAdvanced" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="productAndCategories.*" />
+          <option name="PATTERN" value="basket.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="productAndCategories" />
-      <option name="MAIN_CLASS_NAME" value="productAndCategories.CategoriesTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CategoriesTest.checkingParametersForEachCategory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SeleniumAdvanced" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="productAndCategories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="productAndCategories" />
-      <option name="MAIN_CLASS_NAME" value="productAndCategories.CategoriesTest" />
-      <option name="METHOD_NAME" value="checkingParametersForEachCategory" />
+      <option name="PACKAGE_NAME" value="basket" />
+      <option name="MAIN_CLASS_NAME" value="basket.CheckoutTest" />
+      <option name="METHOD_NAME" value="checkingOrderCorrectness" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CategoriesTest.checkingParametersForEachSubcategory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SearchTest.checkingDropdownForTextInInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumAdvanced" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="productAndCategories.*" />
+          <option name="PATTERN" value="search.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="productAndCategories" />
-      <option name="MAIN_CLASS_NAME" value="productAndCategories.CategoriesTest" />
-      <option name="METHOD_NAME" value="checkingParametersForEachSubcategory" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FiltersTest.checkingFilterForCategory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SeleniumAdvanced" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="productAndCategories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="productAndCategories" />
-      <option name="MAIN_CLASS_NAME" value="productAndCategories.FiltersTest" />
-      <option name="METHOD_NAME" value="checkingFilterForCategory" />
+      <option name="PACKAGE_NAME" value="search" />
+      <option name="MAIN_CLASS_NAME" value="search.SearchTest" />
+      <option name="METHOD_NAME" value="checkingDropdownForTextInInput" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -133,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CategoriesTest.checkingParametersForEachSubcategory" />
-        <item itemvalue="JUnit.CategoriesTest.checkingParametersForEachCategory" />
-        <item itemvalue="JUnit.BasketTest.checkingCartIconAfterSuccessfullyAddedProduct" />
-        <item itemvalue="JUnit.CategoriesTest" />
-        <item itemvalue="JUnit.FiltersTest.checkingFilterForCategory" />
+        <item itemvalue="JUnit.CheckoutTest.checkingOrderCorrectness" />
+        <item itemvalue="JUnit.CheckoutTest" />
+        <item itemvalue="JUnit.SearchTest.checkingDropdownForTextInInput" />
+        <item itemvalue="JUnit.CheckoutTest.checkingCartIconAfterSuccessfullyAddedProduct" />
+        <item itemvalue="JUnit.AddToBasketTest.checkingCartIconAfterSuccessfullyAddedProduct" />
       </list>
     </recent_temporary>
   </component>
@@ -185,7 +192,21 @@
       <option name="project" value="LOCAL" />
       <updated>1664754372406</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Code refactor after code review">
+      <created>1664785791174</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1664785791174</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Adding test that adds product to cart">
+      <created>1664799823765</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1664799823765</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -205,7 +226,8 @@
     <MESSAGE value="Improved appearance of tests and dividing page into smaller pages" />
     <MESSAGE value="Adding browser name enum" />
     <MESSAGE value="Code refactor after code review" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code refactor after code review" />
+    <MESSAGE value="Adding test that adds product to cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding test that adds product to cart" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -51,11 +51,19 @@ public class BasePage {
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
+    protected void waitToBeVisible(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
     protected void returnToPreviousPage() {
         driver.navigate().back();
     }
 
     protected String removeDollarSignFromPrice(String price) {
         return price.replaceAll("\\$", "");
+    }
+
+    protected double getPrice(WebElement price) {
+        return Double.parseDouble(removeDollarSignFromPrice(getElementText(price)));
     }
 }

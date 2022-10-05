@@ -36,6 +36,9 @@ public class AddedToCartPage extends BasePage {
     @FindBy(className = "btn-secondary")
     private WebElement continueBTn;
 
+    @FindBy(css = ".cart-content-btn .btn-primary")
+    private WebElement proceedToCheckoutBTn;
+
     public void waitingForModalDialog() {
         waitToBeVisible(modalTitle);
     }
@@ -72,5 +75,9 @@ public class AddedToCartPage extends BasePage {
 
     public void clickContinueShoppingBtn() {
         click(continueBTn);
+    }
+
+    public void clickProceedToCheckoutBtn() {
+        click(proceedToCheckoutBTn);
     }
 }

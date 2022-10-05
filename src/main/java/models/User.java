@@ -106,6 +106,46 @@ public class User {
         }
     }
 
+    public SocialTitle getSocialTitle() {
+        return socialTitle;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getBirthdate() {
+        return birthdate;
+    }
+
+    public boolean isReceiveOffersAgreement() {
+        return receiveOffersAgreement;
+    }
+
+    public boolean isCustomerDataPrivacyAgreement() {
+        return customerDataPrivacyAgreement;
+    }
+
+    public boolean isSignUpNewsletter() {
+        return signUpNewsletter;
+    }
+
+    public boolean isGeneralConditionsAcceptance() {
+        return generalConditionsAcceptance;
+    }
+
     public static UserBuilder userBuilder() {
         return new UserBuilder();
     }

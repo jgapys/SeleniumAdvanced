@@ -19,18 +19,18 @@ public class FiltersTest extends Pages {
     @Tag("filters")
     @Tag("prodAndCat")
     public void checkingFilterForCategory() {
-        menuPage.clickInChosenCategory("ART");
-        int productsAmount = productsPage.getProductsQuantity();
+        categoryMenuPage.clickInChosenCategory("ART");
+        int productsAmount = allProductsPage.getProductsQuantity();
         double minPrice = 8.00;
         double maxPrice = 10.00;
         filtersPage.setPriceFilter(minPrice, maxPrice);
-        List<Double> filteredProdPrice = productsPage.getAllProductsPrices(productsTilePage.getProductPrice());
+        List<Double> filteredProdPrice = allProductsPage.getAllProductsPrices(productsTilePage.getProductPrice());
         for (double price : filteredProdPrice) {
             logger.info("Price " + price + " matches filter between " + minPrice + " and " + maxPrice);
             assertThat(price).isBetween(minPrice, maxPrice);
         }
         filtersPage.clearFilter();
-        int productsAmountAfterClear = productsPage.getProductsQuantity();
+        int productsAmountAfterClear = allProductsPage.getProductsQuantity();
 
         logger.info("Products after clear: " + productsAmountAfterClear + ", initial number of products: " + productsAmount);
         assertThat(productsAmountAfterClear).isEqualTo(productsAmount);

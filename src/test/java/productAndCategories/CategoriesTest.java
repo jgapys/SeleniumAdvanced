@@ -19,9 +19,9 @@ public class CategoriesTest extends Pages {
     @Tag("categories")
     @Tag("prodAndCat")
     public void checkingParametersForEachCategory() {
-        List<String> allCategoriesNames = menuPage.getAllMenuItemsNames();
+        List<String> allCategoriesNames = categoryMenuPage.getAllMenuItemsNames();
         for (String categoryName : allCategoriesNames) {
-            menuPage.clickInChosenCategory(categoryName);
+            categoryMenuPage.clickInChosenCategory(categoryName);
             checkCategoryParameters(categoryName);
         }
 
@@ -44,13 +44,13 @@ public class CategoriesTest extends Pages {
 
         assertThat(filtersPage.isFiltersMenuDisplayed()).isEqualTo(true);
 
-        int productsAmount = productsPage.getProductsQuantity();
+        int productsAmount = allProductsPage.getProductsQuantity();
         logger.info("There are " + categoriesPage.getTotalProductsNumber() + " products. | products in category: " + productsAmount);
         assertThat(categoriesPage.getTotalProductsNumber()).isEqualTo(productsAmount);
     }
 
     private void checkSubcategoryParameters(String categoryName) {
-        menuPage.clickInChosenCategory(categoryName);
+        categoryMenuPage.clickInChosenCategory(categoryName);
         List<String> allSubcategoriesNames = categoriesPage.getAllSubcategoriesNames();
         for (String subcategoryName : allSubcategoriesNames) {
             categoriesPage.clickInChosenSubcategory(subcategoryName);

@@ -8,9 +8,9 @@ import pages.base.BasePage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductsPage extends BasePage {
+public class AllProductsPage extends BasePage {
 
-    public ProductsPage(WebDriver driver) {
+    public AllProductsPage(WebDriver driver) {
         super(driver);
     }
 
