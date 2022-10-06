@@ -1,12 +1,15 @@
 package base;
 
 import org.junit.jupiter.api.BeforeEach;
+import pages.account.AccountPage;
 import pages.basket.BasketPage;
 import pages.basket.CheckoutPage;
 import pages.login.LoginPage;
 import pages.menu.CategoryMenuPage;
 import pages.menu.LoginAndCartMenuPage;
 import pages.order.OrderConfirmationPage;
+import pages.order.OrderDetails;
+import pages.order.OrderHistoryPage;
 import pages.popup.AddedToCartPage;
 import pages.productAndCategories.*;
 import pages.search.SearchPage;
@@ -25,6 +28,9 @@ public class Pages extends TestBase {
     public BasketPage basketPage;
     public CheckoutPage checkoutPage;
     public OrderConfirmationPage orderConfirmationPage;
+    public AccountPage accountPage;
+    public OrderHistoryPage orderHistoryPage;
+    public OrderDetails orderDetails;
 
     @BeforeEach
     public void pagesSetup() {
@@ -41,5 +47,8 @@ public class Pages extends TestBase {
         basketPage = new BasketPage(driver);
         checkoutPage = new CheckoutPage(driver);
         orderConfirmationPage = new OrderConfirmationPage(driver);
+        accountPage = new AccountPage(driver);
+        orderHistoryPage = new OrderHistoryPage(driver);
+        orderDetails = new OrderDetails(driver);
     }
 }

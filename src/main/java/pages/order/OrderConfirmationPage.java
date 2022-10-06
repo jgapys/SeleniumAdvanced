@@ -14,6 +14,8 @@ public class OrderConfirmationPage extends BasePage {
         super(driver);
     }
 
+    private static final Logger logger = LoggerFactory.getLogger(OrderConfirmationPage.class);
+
     @FindBy(css = ".details span")
     private WebElement confirmProductName;
 
@@ -22,6 +24,12 @@ public class OrderConfirmationPage extends BasePage {
 
     @FindBy(css = "tr td")
     private List<WebElement> totalPriceAndShippingCells;
+
+    @FindBy(css = "#order-details li")
+    private List<WebElement> orderDetails;
+
+    @FindBy(css = ".card-block li strong")
+    private List<WebElement> checkDetails;
 
     public String getConfirmProductName() {
         return getElementText(confirmProductName);
@@ -37,5 +45,28 @@ public class OrderConfirmationPage extends BasePage {
 
     public double getConfirmShippingPrice() {
         return getPrice(totalPriceAndShippingCells.get(3));
+    }
+
+    public String getOrderReferenceNumber() {
+        String refNumberDetails = getElementText(orderDetails.get(0));
+        String refNumber = refNumberDetails.replace("Order reference: ", "");
+        logger.info("Order reference number: {}", refNumber);
+        return refNumber;
+    }
+
+    public String getConfirmPaymentOption() {
+        return getElementText(orderDetails.get(1));
+    }
+
+    public String getConfirmShippingOption() {
+        return getElementText(orderDetails.get(2));
+    }
+
+    public String getConfirmCheckPayee() {
+        return getElementText(checkDetails.get(1));
+    }
+
+    public String getConfirmCheckAddress() {
+        return getElementText(checkDetails.get(2));
     }
 }

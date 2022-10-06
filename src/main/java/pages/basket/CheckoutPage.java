@@ -55,6 +55,9 @@ public class CheckoutPage extends BasePage {
     @FindBy(css = "#payment-confirmation button")
     private WebElement placeOrderBtn;
 
+    @FindBy(css = "#payment-option-1-additional-information dd")
+    private List<WebElement> checkPaymentDetails;
+
     public CheckoutPage clickAddNewAddressBtn() {
         click(addNewAddressBtn);
         return this;
@@ -84,7 +87,7 @@ public class CheckoutPage extends BasePage {
 
     public CheckoutPage choosePaymentMethod(String paymentOption) {
         for (int i = 0; i < paymentOptionNames.size(); i++) {
-            if (getElementText(paymentOptionNames.get(i)).equals(paymentOption)) {
+            if (getElementText(paymentOptionNames.get(i)).contains(paymentOption)) {
                 paymentOptionRadioBtn.get(i).click();
                 logger.info("Clicking on: radio button for {}", paymentOption);
                 break;
@@ -102,5 +105,13 @@ public class CheckoutPage extends BasePage {
     public CheckoutPage clickPlaceOrderBtn() {
         click(placeOrderBtn);
         return this;
+    }
+
+    public String getCheckPaymentPayee(){
+        return getElementText(checkPaymentDetails.get(1));
+    }
+
+    public String getCheckPaymentAddress(){
+        return getElementText(checkPaymentDetails.get(2));
     }
 }

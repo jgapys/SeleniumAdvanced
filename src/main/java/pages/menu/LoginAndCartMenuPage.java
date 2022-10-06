@@ -20,6 +20,9 @@ public class LoginAndCartMenuPage extends BasePage {
     @FindBy(className = "user-info")
     private WebElement signInBtn;
 
+    @FindBy(className = "account")
+    private WebElement accountBtn;
+
     public int getCartBtnQuantity() {
         String cartProductsCount = getElementText(this.cartProductsCount);
         String cartBtnQuantity = cartProductsCount.substring(1, cartProductsCount.length() - 1);
@@ -29,5 +32,9 @@ public class LoginAndCartMenuPage extends BasePage {
 
     public void clickSignInBtn() {
         click(signInBtn);
+    }
+
+    public void clickAccountBtn() {
+        click(accountBtn);
     }
 }
