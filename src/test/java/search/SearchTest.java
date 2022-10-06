@@ -35,7 +35,8 @@ public class SearchTest extends Pages {
 
         List<String> dropdownItemsNames = searchPage.getDropdownItemsNames();
         for (String dropdownItemsName : dropdownItemsNames) {
-            logger.info(dropdownItemsName);
+            logger.info(dropdownItemsName + " contains " + search);
+            assertThat(dropdownItemsName).contains(search);
         }
 
     }
