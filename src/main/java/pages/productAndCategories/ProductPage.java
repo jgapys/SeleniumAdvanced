@@ -27,8 +27,11 @@ public class ProductPage extends BasePage {
     @FindBy(className = "add-to-cart")
     private WebElement addToCartBtn;
 
-    @FindBy(className = "current-price")
+    @FindBy(css = "span[itemprop='price']")
     private WebElement currentPrice;
+
+    @FindBy(css = "h1")
+    private WebElement productName;
 
     public int getQuantityInputValue() {
         int productQuantity = Integer.parseInt(quantityInput.getAttribute("value"));
@@ -62,5 +65,9 @@ public class ProductPage extends BasePage {
         double currentPrice = getPrice(this.currentPrice);
         logger.info("Current product price: {}", currentPrice);
         return currentPrice;
+    }
+
+    public String getProductName(){
+        return getElementText(productName);
     }
 }

@@ -30,7 +30,7 @@ public class AddToBasketTest extends Pages {
 
         checkAddedToCartPopupParameters(productName, productPrice, quantity, itemsInCart);
 
-        addedToCartPage.clickContinueShoppingBtn();
+        addedToBasketPopupPage.clickContinueShoppingBtn();
 
         int cartQuantity = loginAndCartMenuPage.getCartBtnQuantity();
 
@@ -40,7 +40,7 @@ public class AddToBasketTest extends Pages {
     }
 
     private void checkAddedToCartPopupParameters(String productName, double productPrice, int productQuantity, int itemsInCart) {
-        addedToCartPage.waitingForModalDialog();
+        addedToBasketPopupPage.waitingForModalDialog();
 
         checkPopupProductName(productName);
         checkPopupProductPrice(productPrice);
@@ -51,32 +51,32 @@ public class AddToBasketTest extends Pages {
     }
 
     private void checkPopupProductName(String productName) {
-        String name = addedToCartPage.getProductName();
+        String name = addedToBasketPopupPage.getProductName();
         logger.info("Product name in popup: " + name + ", chosen product name: " + productName);
         assertThat(name).isEqualTo(productName);
     }
 
     private void checkPopupProductPrice(double productPrice) {
-        double price = addedToCartPage.getProductPrice();
+        double price = addedToBasketPopupPage.getProductPrice();
         logger.info("Product price in popup: " + price + ", chosen product price: " + productPrice);
         assertThat(price).isEqualTo(productPrice);
     }
 
     private void checkPopupProductQuantity(int productQuantity) {
-        int quantity = addedToCartPage.getProductQuantity();
+        int quantity = addedToBasketPopupPage.getProductQuantity();
         logger.info("Product quantity in popup: " + quantity + ", chosen product quantity: " + productQuantity);
         assertThat(quantity).isEqualTo(productQuantity);
     }
 
     private void checkPopupItemsInCartInfo(int itemsInCart) {
-        String itemsInCartInfo = addedToCartPage.getItemsInCartInfo();
+        String itemsInCartInfo = addedToBasketPopupPage.getItemsInCartInfo();
         String itemsInfo = "There are " + itemsInCart + " items in your cart.";
         logger.info("Item in cart info in popup: " + itemsInCartInfo + ", info that should be: " + itemsInfo);
         assertThat(itemsInCartInfo).isEqualTo(itemsInfo);
     }
 
     private void checkPopupTotalProductsPrice(double productPrice, int productQuantity) {
-        double totalProductsPrice = addedToCartPage.getTotalProductsPrice();
+        double totalProductsPrice = addedToBasketPopupPage.getTotalProductsPrice();
         double productsPrice = productPrice * productQuantity;
         logger.info("Total products price in popup: " + totalProductsPrice + ", chosen total products price: " + productsPrice);
         assertThat(totalProductsPrice).isEqualTo(productsPrice);

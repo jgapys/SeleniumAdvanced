@@ -31,10 +31,10 @@ public class CheckoutTest extends Pages {
         allProductsPage.clickInChosenProduct(productName);
         productPage.addProductToCart();
 
-        addedToCartPage.waitingForModalDialog();
-        double productPrice = addedToCartPage.getProductPrice();
-        int quantity = addedToCartPage.getProductQuantity();
-        addedToCartPage.clickProceedToCheckoutBtn();
+        addedToBasketPopupPage.waitingForModalDialog();
+        double productPrice = addedToBasketPopupPage.getProductPrice();
+        int quantity = addedToBasketPopupPage.getProductQuantity();
+        addedToBasketPopupPage.clickProceedToCheckoutBtn();
 
         basketPage.clickProceedToCheckoutBtn();
 

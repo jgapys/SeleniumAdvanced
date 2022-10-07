@@ -52,4 +52,8 @@ public class AllProductsPage extends BasePage {
             }
         }
     }
+
+    public void clickInRandomProduct() {
+        click(getRandomProduct());
+    }
 }

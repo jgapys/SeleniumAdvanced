@@ -7,13 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.base.BasePage;
 
-public class AddedToCartPage extends BasePage {
+public class AddedToBasketPopupPage extends BasePage {
 
-    public AddedToCartPage(WebDriver driver) {
+    public AddedToBasketPopupPage(WebDriver driver) {
         super(driver);
     }
 
-    private static final Logger logger = LoggerFactory.getLogger(AddedToCartPage.class);
+    private static final Logger logger = LoggerFactory.getLogger(AddedToBasketPopupPage.class);
 
     @FindBy(className = "modal-title")
     private WebElement modalTitle;

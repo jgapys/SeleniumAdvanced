@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e57db3e2-50d1-4ad3-85fc-57fd8e6d1127" name="Changes" comment="SearchTest repair after code review">
+    <list default="true" id="e57db3e2-50d1-4ad3-85fc-57fd8e6d1127" name="Changes" comment="Second part of CheckoutTest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/basket/CheckoutPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/basket/CheckoutPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/basket/BasketPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/basket/BasketPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/menu/LoginAndCartMenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/menu/LoginAndCartMenuPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/order/OrderConfirmationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/order/OrderConfirmationPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/popup/AddedToCartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/popup/AddedToBasketPopupPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/AllProductsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/AllProductsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/base/Pages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Pages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/basket/AddToBasketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/basket/AddToBasketTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/basket/CheckoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/basket/CheckoutTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +56,7 @@
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CheckoutTest">
+  <component name="RunManager" selected="JUnit.BasketTest">
     <configuration name="AddToBasketTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumAdvanced" />
       <extension name="coverage">
@@ -68,6 +72,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BasketTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumAdvanced" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basket.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="basket" />
+      <option name="MAIN_CLASS_NAME" value="basket.BasketTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BasketTest.checkingAddedProductsCorrectnessAndRemovingThem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumAdvanced" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basket.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="basket" />
+      <option name="MAIN_CLASS_NAME" value="basket.BasketTest" />
+      <option name="METHOD_NAME" value="checkingAddedProductsCorrectnessAndRemovingThem" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CheckoutTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumAdvanced" />
       <extension name="coverage">
@@ -79,22 +114,6 @@
       <option name="PACKAGE_NAME" value="basket" />
       <option name="MAIN_CLASS_NAME" value="basket.CheckoutTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CheckoutTest.checkingCartIconAfterSuccessfullyAddedProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SeleniumAdvanced" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="basket.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="basket" />
-      <option name="MAIN_CLASS_NAME" value="basket.CheckoutTest" />
-      <option name="METHOD_NAME" value="checkingCartIconAfterSuccessfullyAddedProduct" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,29 +134,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SearchTest.checkingDropdownForTextInInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SeleniumAdvanced" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="search.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="search" />
-      <option name="MAIN_CLASS_NAME" value="search.SearchTest" />
-      <option name="METHOD_NAME" value="checkingDropdownForTextInInput" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BasketTest" />
+        <item itemvalue="JUnit.BasketTest.checkingAddedProductsCorrectnessAndRemovingThem" />
         <item itemvalue="JUnit.CheckoutTest" />
         <item itemvalue="JUnit.CheckoutTest.checkingOrderCorrectness" />
         <item itemvalue="JUnit.AddToBasketTest" />
-        <item itemvalue="JUnit.SearchTest.checkingDropdownForTextInInput" />
-        <item itemvalue="JUnit.CheckoutTest.checkingCartIconAfterSuccessfullyAddedProduct" />
       </list>
     </recent_temporary>
   </component>
@@ -213,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665067934902</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Second part of CheckoutTest">
+      <created>1665083395924</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1665083395924</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -236,7 +246,8 @@
     <MESSAGE value="Adding test that adds product to cart" />
     <MESSAGE value="First part of checkout test" />
     <MESSAGE value="SearchTest repair after code review" />
-    <option name="LAST_COMMIT_MESSAGE" value="SearchTest repair after code review" />
+    <MESSAGE value="Second part of CheckoutTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Second part of CheckoutTest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

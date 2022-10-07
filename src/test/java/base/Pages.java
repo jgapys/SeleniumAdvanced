@@ -10,7 +10,7 @@ import pages.menu.LoginAndCartMenuPage;
 import pages.order.OrderConfirmationPage;
 import pages.order.OrderDetails;
 import pages.order.OrderHistoryPage;
-import pages.popup.AddedToCartPage;
+import pages.popup.AddedToBasketPopupPage;
 import pages.productAndCategories.*;
 import pages.search.SearchPage;
 
@@ -22,7 +22,7 @@ public class Pages extends TestBase {
     public ProductsTilePage productsTilePage;
     public SearchPage searchPage;
     public ProductPage productPage;
-    public AddedToCartPage addedToCartPage;
+    public AddedToBasketPopupPage addedToBasketPopupPage;
     public LoginAndCartMenuPage loginAndCartMenuPage;
     public LoginPage loginPage;
     public BasketPage basketPage;
@@ -40,7 +40,7 @@ public class Pages extends TestBase {
         allProductsPage = new AllProductsPage(driver);
         productsTilePage = new ProductsTilePage(driver);
         searchPage = new SearchPage(driver);
-        addedToCartPage = new AddedToCartPage(driver);
+        addedToBasketPopupPage = new AddedToBasketPopupPage(driver);
         productPage = new ProductPage(driver);
         loginAndCartMenuPage = new LoginAndCartMenuPage(driver);
         loginPage = new LoginPage(driver);
