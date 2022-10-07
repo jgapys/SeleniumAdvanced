@@ -4,7 +4,6 @@ import base.Pages;
 import models.Product;
 import org.decimal4j.util.DoubleRounder;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -20,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class BasketTest extends Pages {
     private static final Logger logger = LoggerFactory.getLogger(BasketTest.class);
 
-    //@RepeatedTest(10)
     @Test
     @DisplayName("Generic test - checking the correctness of added products to basket and removing them")
     @Tag("basket")
@@ -37,15 +35,8 @@ public class BasketTest extends Pages {
         assertThat(cartProducts).usingRecursiveComparison().isEqualTo(randomProducts);
         checkTotalOrderValue(randomProducts);
 
-        for (int i = 0; i < productsNumber; i++) {
-            logger.info("Removing " + basketPage.getCartItemName(0) + " with total product value " + basketPage.getCartItemTotalPrice(0));
-            basketPage.removeFirstProductFromCart()
-                    .waitingForRemove();
-            randomProducts.remove(randomProducts.get(0));
-            cartProducts.remove(cartProducts.get(0));
-            assertThat(cartProducts).usingRecursiveComparison().isEqualTo(randomProducts);
-            checkTotalOrderValue(randomProducts);
-        }
+        removeAllElementsFromBasket(cartProducts, randomProducts);
+
         assertTrue(basketPage.emptyCartLabelIsDisplayed());
         logger.info("Empty cart label is displayed");
     }
@@ -130,5 +121,18 @@ public class BasketTest extends Pages {
 
     private double roundToTwoDecimalPlaces(double value) {
         return DoubleRounder.round(value, 2);
+    }
+
+    private void removeAllElementsFromBasket(List<Product> cartProducts, List<Product> randomProducts) {
+        int cartSize = cartProducts.size();
+        for (int i = 0; i < cartSize; i++) {
+            logger.info("Removing " + basketPage.getCartItemName(0) + " with total product value " + basketPage.getCartItemTotalPrice(0));
+            basketPage.removeFirstProductFromCart()
+                    .waitingForRemove();
+            randomProducts.remove(0);
+            cartProducts.remove(0);
+            assertThat(cartProducts).usingRecursiveComparison().isEqualTo(randomProducts);
+            checkTotalOrderValue(randomProducts);
+        }
     }
 }

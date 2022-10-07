@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e57db3e2-50d1-4ad3-85fc-57fd8e6d1127" name="Changes" comment="Second part of CheckoutTest">
+    <list default="true" id="e57db3e2-50d1-4ad3-85fc-57fd8e6d1127" name="Changes" comment="Adding basket generic test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/basket/BasketPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/basket/BasketPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/menu/LoginAndCartMenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/menu/LoginAndCartMenuPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/popup/AddedToCartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/popup/AddedToBasketPopupPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/AllProductsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/AllProductsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/Pages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Pages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/basket/AddToBasketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/basket/AddToBasketTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/basket/CheckoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/basket/CheckoutTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/basket/BasketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/basket/BasketTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,20 +35,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/trainings/SeleniumAdvanced"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/trainings/SeleniumAdvanced&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BasketTest">
+  <component name="RunManager" selected="JUnit.BasketTest.checkingAddedProductsCorrectnessAndRemovingThem">
     <configuration name="AddToBasketTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumAdvanced" />
       <extension name="coverage">
@@ -136,8 +128,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BasketTest" />
         <item itemvalue="JUnit.BasketTest.checkingAddedProductsCorrectnessAndRemovingThem" />
+        <item itemvalue="JUnit.BasketTest" />
         <item itemvalue="JUnit.CheckoutTest" />
         <item itemvalue="JUnit.CheckoutTest.checkingOrderCorrectness" />
         <item itemvalue="JUnit.AddToBasketTest" />
