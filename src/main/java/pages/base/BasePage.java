@@ -44,7 +44,9 @@ public class BasePage {
     }
 
     protected String getElementText(WebElement element) {
-        return element.getText();
+        String text = element.getText();
+        logger.info(text);
+        return text;
     }
 
     protected void waitToBeInvisible(WebElement element) {
@@ -65,5 +67,15 @@ public class BasePage {
 
     protected double getPrice(WebElement price) {
         return Double.parseDouble(removeDollarSignFromPrice(getElementText(price)));
+    }
+
+    protected double getPriceAndLog(WebElement price) {
+        double productPrice = getPrice(price);
+        logger.info(String.valueOf(productPrice));
+        return productPrice;
+    }
+
+    protected void clearInput(WebElement element) {
+        element.clear();
     }
 }

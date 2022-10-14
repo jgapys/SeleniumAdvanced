@@ -59,6 +59,10 @@ public class Product {
         return totalPrice;
     }
 
+    public void addQuantity(int quantity) {
+        this.quantity += quantity;
+    }
+
     @Override
     public String toString() {
         return "name: " + name + ", quantity: " + quantity + ", quantity price: " + quantityPrice + ", total price: " + totalPrice;

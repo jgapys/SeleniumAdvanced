@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.base.BasePage;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OrderHistoryPage extends BasePage {
     public OrderHistoryPage(WebDriver driver) {
@@ -20,11 +20,7 @@ public class OrderHistoryPage extends BasePage {
     private List<WebElement> detailsBtnsList;
 
     public List<String> getOrderReferenceNumbersList() {
-        List<String> refNumbers = new ArrayList<>();
-        for (WebElement number : orderReferenceNumbersList) {
-            refNumbers.add(getElementText(number));
-        }
-        return refNumbers;
+        return orderReferenceNumbersList.stream().map(this::getElementText).collect(Collectors.toList());
     }
 
     public void getOrderByReferenceNumber(String referenceNumber) {

@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e57db3e2-50d1-4ad3-85fc-57fd8e6d1127" name="Changes" comment="Adding basket generic test">
+    <list default="true" id="e57db3e2-50d1-4ad3-85fc-57fd8e6d1127" name="Changes" comment="Improving scope of the loop when removing product">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/base/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/base/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/basket/BasketPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/basket/BasketPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/order/OrderConfirmationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/order/OrderConfirmationPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/order/OrderHistoryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/order/OrderHistoryPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/popup/AddedToBasketPopupPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/popup/AddedToBasketPopupPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductsTilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/productAndCategories/ProductsTilePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/basket/AddToBasketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/basket/AddToBasketTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/basket/BasketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/basket/BasketTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/basket/CheckoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/basket/CheckoutTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665083395924</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Improving scope of the loop when removing product">
+      <created>1665129145831</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1665129145832</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -239,7 +256,8 @@
     <MESSAGE value="First part of checkout test" />
     <MESSAGE value="SearchTest repair after code review" />
     <MESSAGE value="Second part of CheckoutTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Second part of CheckoutTest" />
+    <MESSAGE value="Improving scope of the loop when removing product" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improving scope of the loop when removing product" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

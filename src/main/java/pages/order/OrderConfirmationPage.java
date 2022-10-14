@@ -48,8 +48,7 @@ public class OrderConfirmationPage extends BasePage {
     }
 
     public String getOrderReferenceNumber() {
-        String refNumberDetails = getElementText(orderDetails.get(0));
-        String refNumber = refNumberDetails.replace("Order reference: ", "");
+        String refNumber = getElementText(orderDetails.get(0)).replace("Order reference: ", "");
         logger.info("Order reference number: {}", refNumber);
         return refNumber;
     }

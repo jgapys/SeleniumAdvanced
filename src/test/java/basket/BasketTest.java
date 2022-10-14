@@ -23,92 +23,57 @@ public class BasketTest extends Pages {
     @DisplayName("Generic test - checking the correctness of added products to basket and removing them")
     @Tag("basket")
     public void checkingAddedProductsCorrectnessAndRemovingThem() {
-        int productsNumber = 5;
-        List<Product> randomProducts = generateRandomProductsInCart(productsNumber);
-        listsAllProducts(randomProducts);
+        int quantity = 5;
+        List<Product> expectedProducts = addRandomProductsToCart(quantity);
+        listsAllProducts(expectedProducts);
 
         loginAndCartMenuPage.clickCartBtn();
 
-        List<Product> cartProducts = basketPage.getListOfProductsInCart();
-        listsAllProducts(cartProducts);
+        List<Product> actualProducts = basketPage.getListOfProductsInCart();
+        listsAllProducts(actualProducts);
 
-        assertThat(cartProducts).usingRecursiveComparison().isEqualTo(randomProducts);
-        checkTotalOrderValue(randomProducts);
+        assertThat(actualProducts).usingRecursiveComparison().isEqualTo(expectedProducts);
+        assertThat(roundToTwoDecimalPlaces(getTotalOrderValue(expectedProducts))).isEqualTo(basketPage.getTotalOrderPrice());
 
-        removeAllElementsFromBasket(cartProducts, randomProducts);
+        removeAllElementsFromBasket(actualProducts, expectedProducts);
 
         assertTrue(basketPage.emptyCartLabelIsDisplayed());
         logger.info("Empty cart label is displayed");
     }
 
 
-    private List<Product> generateRandomProductsInCart(int productsNumber) {
-        List<Product> randomProducts = new ArrayList<>();
+    private List<Product> addRandomProductsToCart(int itemsQuantity) {
+        categoryMenuPage.returnToHomePage();
+        List<Product> allProducts = new ArrayList<>();
         Random random = new Random();
-        for (int i = 0; i < productsNumber; i++) {
+        for (int i = 0; i < itemsQuantity; i++) {
             allProductsPage.clickInRandomProduct();
-
-            String productName = productPage.getProductName();
-            logger.info("Product: {}", productName);
-
-            int quantity = random.nextInt(1, 6);
-            productPage.setProductQuantity(quantity);
-            logger.info("Quantity: {}", quantity);
-
+            int productQuantity = random.nextInt(1, 6);
+            productPage.setProductQuantity(productQuantity);
+            Product productToAdd = productPage.toProductDetails();
             productPage.addProductToCart();
             addedToBasketPopupPage.waitingForModalDialog();
-
-            double quantityPrice = addedToBasketPopupPage.getProductPrice();
-            logger.info("Quantity price: {}", quantityPrice);
-
-            double totalPrice = quantity * quantityPrice;
-            logger.info("Total price: {}", totalPrice);
-
-            for (Product randomProduct : randomProducts) {
-                if (randomProduct.getName().equals(productName)) {
-                    quantity += randomProduct.getQuantity();
-                    totalPrice += randomProduct.getTotalPrice();
-                }
-            }
-
-            Product product = Product.productBuilder()
-                    .name(productName)
-                    .quantity(quantity)
-                    .quantityPrice(quantityPrice)
-                    .totalPrice(roundToTwoDecimalPlaces(totalPrice))
-                    .build();
+            addedToBasketPopupPage.clickContinueShoppingBtn();
 
             boolean isInCart = false;
-            for (Product randomProduct : randomProducts) {
-                if (randomProduct.getName().equals(product.getName())) {
+            for (Product product : allProducts) {
+                if (product.getName().equals(productToAdd.getName())) {
+                    allProducts.get(allProducts.indexOf(product)).addQuantity(productToAdd.getQuantity());
                     isInCart = true;
-                    randomProducts.set(randomProducts.indexOf(randomProduct), product);
                     break;
                 }
             }
             if (!isInCart) {
-                randomProducts.add(product);
+                allProducts.add(productToAdd);
             }
-
-            addedToBasketPopupPage.clickContinueShoppingBtn();
-            categoryMenuPage.returnToHomePage();
         }
-
-        return randomProducts;
+        return allProducts;
     }
 
     private void listsAllProducts(List<Product> products) {
         for (Product product : products) {
             logger.info(product.toString());
         }
-    }
-
-    private void checkTotalOrderValue(List<Product> products) {
-        double totalOrderValue = getTotalOrderValue(products);
-        double cartTotalValue = basketPage.getTotalOrderPrice();
-
-        logger.info("Value of all added random products: " + roundToTwoDecimalPlaces(totalOrderValue) + " | total value on cart page: " + cartTotalValue);
-        assertThat(roundToTwoDecimalPlaces(totalOrderValue)).isEqualTo(cartTotalValue);
     }
 
     private double getTotalOrderValue(List<Product> products) {
@@ -132,7 +97,7 @@ public class BasketTest extends Pages {
             randomProducts.remove(0);
             cartProducts.remove(0);
             assertThat(cartProducts).usingRecursiveComparison().isEqualTo(randomProducts);
-            checkTotalOrderValue(randomProducts);
+            assertThat(roundToTwoDecimalPlaces(getTotalOrderValue(randomProducts))).isEqualTo(basketPage.getTotalOrderPrice());
         }
     }
 }

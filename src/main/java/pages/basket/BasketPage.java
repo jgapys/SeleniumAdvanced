@@ -6,8 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.base.BasePage;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class BasketPage extends BasePage {
     public BasketPage(WebDriver driver) {
@@ -66,25 +67,12 @@ public class BasketPage extends BasePage {
     }
 
     public List<Product> getListOfProductsInCart() {
-        List<Product> productsInCar = new ArrayList<>();
-        for (int i = 0; i < getCartItems().size(); i++) {
-            String productName = getCartItemName(i);
-            int quantity = getCartItemQuantity(i);
-            double quantityPrice = getCartItemQuantityPrice(i);
-            double totalPrice = getCartItemTotalPrice(i);
-
-            Product product = Product.productBuilder()
-                    .name(productName)
-                    .quantity(quantity)
-                    .quantityPrice(quantityPrice)
-                    .totalPrice(totalPrice)
-                    .build();
-
-            productsInCar.add(product);
-
-        }
-
-        return productsInCar;
+        return IntStream.range(0, getCartItems().size()).mapToObj(i -> Product.productBuilder()
+                .name(getCartItemName(i))
+                .quantity(getCartItemQuantity(i))
+                .quantityPrice(getCartItemQuantityPrice(i))
+                .totalPrice(getCartItemTotalPrice(i))
+                .build()).collect(Collectors.toList());
     }
 
     public WebElement getTotalOrderValue() {

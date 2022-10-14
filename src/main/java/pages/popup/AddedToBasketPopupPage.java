@@ -3,8 +3,6 @@ package pages.popup;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import pages.base.BasePage;
 
 public class AddedToBasketPopupPage extends BasePage {
@@ -12,8 +10,6 @@ public class AddedToBasketPopupPage extends BasePage {
     public AddedToBasketPopupPage(WebDriver driver) {
         super(driver);
     }
-
-    private static final Logger logger = LoggerFactory.getLogger(AddedToBasketPopupPage.class);
 
     @FindBy(className = "modal-title")
     private WebElement modalTitle;
@@ -44,33 +40,23 @@ public class AddedToBasketPopupPage extends BasePage {
     }
 
     public String getProductName() {
-        String productName = getElementText(this.productName);
-        logger.info(productName);
-        return productName;
+        return getElementText(productName);
     }
 
     public double getProductPrice() {
-        double productPrice = getPrice(this.productPrice);
-        logger.info(String.valueOf(productPrice));
-        return productPrice;
+        return getPriceAndLog(productPrice);
     }
 
     public int getProductQuantity() {
-        String productQuantity = getElementText(this.productQuantity);
-        logger.info(productQuantity);
-        return Integer.parseInt(productQuantity);
+        return Integer.parseInt(getElementText(productQuantity));
     }
 
     public String getItemsInCartInfo() {
-        String itemsInCarInfo = getElementText(this.itemInCartInfo);
-        logger.info(itemsInCarInfo);
-        return itemsInCarInfo;
+        return getElementText(itemInCartInfo);
     }
 
     public double getTotalProductsPrice() {
-        double totalProductsPrice = getPrice(subtotalPrice);
-        logger.info(String.valueOf(totalProductsPrice));
-        return totalProductsPrice;
+        return getPriceAndLog(subtotalPrice);
     }
 
     public void clickContinueShoppingBtn() {
